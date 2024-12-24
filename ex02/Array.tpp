@@ -55,6 +55,10 @@ Array<T>::Array(const Array &other)
     {
         _array = new T[_size];
         _size = other._size;
+        for (unsigned int i = 0; i < _size; i++)
+        {
+            _array[i] = other._array[i];
+        }
         std::cout << "Array copy constructor has been called" << std::endl;
     }
     catch(std::bad_alloc&) 
@@ -62,10 +66,6 @@ Array<T>::Array(const Array &other)
         std::cerr << "Allocation of the array failed" << std::endl;
         _array = NULL;
         _size = 0;
-    }
-    for (unsigned int i = 0; i < _size; i++)
-    {
-        _array[i] = other._array[i];
     }
 }
 
@@ -90,16 +90,16 @@ Array<T> &Array<T>::operator=(const Array &other)
     {
         _array = new T[_size];
         _size = other._size;
+        for (unsigned int i = 0; i < _size; i++)
+        {
+            _array[i] = other._array[i];
+        }
     }
     catch(std::bad_alloc&) 
     {
         std::cerr << "Allocation of the array failed" << std::endl;
         _array = NULL;
         _size = 0;
-    }
-    for (unsigned int i = 0; i < _size; i++)
-    {
-        _array[i] = other._array[i];
     }
     return *this;
 }
