@@ -1,9 +1,25 @@
 #include "Array.hpp"
 
+class ComplexType {
+public:
+    ComplexType() : _value(0) {}
+    ComplexType(int value) : _value(value) {}
+    int getValue() const { return _value; }
+    void setValue(int value) { _value = value; }
+private:
+    int _value;
+};
+
+std::ostream &operator<<(std::ostream &os, const ComplexType &obj) {
+    os << obj.getValue();
+    return os;
+}
+
 int main() {
     Array<int> intArray(5);
     Array<char> charArray(5);
     Array<std::string> stringArray(5);
+    Array<ComplexType> complexArray(5);
 
     std::cout << std::endl;
     std::cout << "intArray:" << std::endl;
@@ -28,6 +44,13 @@ int main() {
     stringArray[4] = "berry";
     for (unsigned int i = 0; i < stringArray.size(); i++) {
         std::cout << stringArray[i] << std::endl;
+    }
+    std::cout << std::endl;
+
+    std::cout << "complexArray:" << std::endl;
+    for (unsigned int i = 0; i < complexArray.size(); i++) {
+        complexArray[i] = ComplexType(i * 10);
+        std::cout << complexArray[i] << std::endl;
     }
     std::cout << std::endl;
 

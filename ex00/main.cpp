@@ -1,5 +1,23 @@
 #include "whatever.hpp"
 
+class ComplexType {
+public:
+    ComplexType() : _value(0) {}
+    ComplexType(int value) : _value(value) {}
+    int getValue() const { return _value; }
+    void setValue(int value) { _value = value; }
+    bool operator<(const ComplexType &other) const { return _value < other._value; }
+    bool operator>(const ComplexType &other) const { return _value > other._value; }
+private:
+    int _value;
+};
+
+std::ostream &operator<<(std::ostream &os, const ComplexType &obj) 
+{
+    os << obj.getValue();
+    return os;
+}
+
 // :: is the scope resolution operator in C++. It is used to
 // specify the scope of a function or a variable. In this case,
 // it is used to specify that the function swap, min, and max
@@ -47,6 +65,17 @@ int main() {
     std::cout << "g = " << g << ", h = " << h << std::endl;
     std::cout << "min( g, h ) = " << ::min( g, h ) << std::endl;
     std::cout << "max( g, h ) = " << ::max( g, h ) << std::endl;
+    std::cout << std::endl;
+
+    ComplexType x(10);
+    ComplexType y(20);
+    std::cout << "x = " << x << ", y = " << y << std::endl;
+    ::swap(x, y);
+    std::cout << "After swap(x, y):" << std::endl;
+    std::cout << "x = " << x << ", y = " << y << std::endl;
+
+    std::cout << "min(x, y) = " << ::min(x, y) << std::endl;
+    std::cout << "max(x, y) = " << ::max(x, y) << std::endl;
 
     return 0;
 }
