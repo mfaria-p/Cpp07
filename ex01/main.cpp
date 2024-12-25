@@ -4,7 +4,7 @@
 //and prints the element to the standard output.
 
 template <typename T>
-void printElement(T &element) {
+void printElement(const T &element) {
     std::cout << element << std::endl;
 }
 
@@ -24,6 +24,8 @@ void doubleElement(T &element) {
 
 //The ++ and * operators works for numeric types like int, double, etc., 
 //but it does not work and are not defined for std::string.
+//The incrementElement and doubleElement functions will work for int, double, etc.,
+//but not for std::string.
 
 int main() {
     int intArray[] = {1, 2, 3, 4, 5};

@@ -13,9 +13,17 @@ void iter(T *array, int size, void (*func)(T &))
 {
     if (!array || size <= 0 || !func)
         return;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
         func(array[i]);
-    }
+}
+
+template <typename T>
+void iter(const T *array, int size, void (*func)(const T &)) 
+{
+    if (!array || size <= 0 || !func)
+        return;
+    for (int i = 0; i < size; i++)
+        func(array[i]);
 }
 
 #endif //EX01_ITER_HPP
