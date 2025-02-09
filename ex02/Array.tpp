@@ -53,8 +53,8 @@ Array<T>::Array(const Array &other)
 {
     try
     {
-        _array = new T[_size];
         _size = other._size;
+        _array = new T[_size];
         for (unsigned int i = 0; i < _size; i++)
         {
             _array[i] = other._array[i];

@@ -2,6 +2,8 @@
 #define EX02_ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib> 
+#include <ctime>
 
 //Exceptions are typically defined as public members of a class. 
 //This is because exceptions are meant to be thrown and caught by 

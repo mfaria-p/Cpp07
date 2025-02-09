@@ -4,7 +4,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 NAME = array
 CXX = c++
-CXXFLAGS = -g -std=c++98 -Wall -Wextra -Werror -fsanitize=address
+CXXFLAGS = -g -std=c++98 -Wall -Wextra -Werror 
 
 all: $(NAME)
 
